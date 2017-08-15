@@ -1,0 +1,102 @@
+.lo_header{
+    box-shadow: 0 2px 4px 0 #c5b7b9;
+    width: 100%;
+    height: 128px;
+}
+.head{
+    width: 1280px;
+    height: 100%;
+    background: #fff;
+    line-height: 128px;
+    margin:0 auto;
+}
+.head-logo{
+    float:left;
+    width: 228px;
+    height: 128px;
+
+}
+
+
+.head-login{
+    overflow: hidden;
+    float: right;
+}
+
+
+.loginbtn{
+    width: 134px;
+    height: 53px;
+    border: 2px solid #D6131E;
+    border-radius: 100px;
+    background:#fff;
+    font-size: 24px;
+    color:#d6131e;
+    line-height: 53px;
+}
+.logining{
+    width: 209px;
+    height: 58px;
+    line-height: normal;
+    margin-top: 35px;
+    display: none;
+}
+.logining>div{
+    float: left;
+}
+.login-photo{
+    width: 56px;
+    height: 56px;
+    border:1px solid #d6131e;
+    border-radius:50%;
+    overflow: hidden;
+    margin-right: 17px;
+}
+.login-photo img{
+    width: 100%;
+}
+.login-name{
+    font-size: 20px;
+    margin-top: 5px;
+    margin-bottom:5px;
+}
+.escbox{
+    padding-top: 5px;
+    margin-left: 30px;
+}
+.esc{
+    font-size: 14px;
+    color:#676767;
+}
+
+
+.head-nav{
+    float:right;
+    overflow: hidden;
+}
+.head-nav li{
+    float: left;
+    font-size: 24px;
+    margin-right: 37px;
+    position: relative;
+}
+.head-nav li a{
+    color:#333333;
+    
+}
+.nav-line{
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background: #d6131e;
+    position: absolute;
+    bottom:37px;
+    left:0;
+    display: none;
+}
+li.nav-active a{
+    color:#d6131e;
+}
+.nav-active .nav-line{
+    display: block;
+}
