@@ -109,11 +109,26 @@
     overflow: hidden;
     padding: 0 27px 10px 27px;
     box-sizing: border-box;
+    border-bottom: 1px solid #e5e5e5
+}
+.index_ds_item>p{
+    width: 100%;
+    height:14px;
+    line-height: 14px;
+    text-align: center;
+    margin-top:15px;
+    margin-bottom:20px;
 }
 .index_ds_header{
     overflow: hidden;
     height: 63px;
     line-height: 63px;
+}
+.index_imgbox{
+    width: 211px;
+    height: 203px;
+    margin:0 auto;
+    padding-top:30px;
 }
 .index_ds_time{
     float: left;
@@ -122,7 +137,7 @@
 .index_ds_states{
     float: right;
     height: 100%;
-    color:#ff6600;
+    color:#666;
 }
 
 .index_panelbox li{
@@ -157,19 +172,21 @@
     float:left;
     margin-left:20px;
     padding-top:18px;
+    width: 583px;
 }
 .lesson_level{
     display: inline-block;
     padding: 0 5px;
     height: 17px;
     color: #fff;
-    background: #ff6600; 
+    border:1px solid #2b8eef; 
+    background:#2b8eef; 
     text-align: center;
     line-height: 17px;
     border-radius: 8px;
     margin-right: 10px;
     font-size:12px;
-    
+    padding:0 7px;
 }
 .lesson_dec{
     margin-top: 15px;
@@ -184,6 +201,11 @@
 }
 .lesson_user > span{
     margin-right: 10px;
+}
+.lesson_level.lesson_yuyue{
+    background:#ff6600;
+    border:0;
+    color:#fff;
 }
 
 /*我的课表  */
@@ -210,7 +232,7 @@
     margin-top: 20px;
 }
 .lessonList_nav_box li a.active{
-    color:#c40016;
+    color:#ff6600;
 }
 .tesTingBox{
     width: 450px;
@@ -229,12 +251,21 @@
     height: 143px;
     border-radius: 50%;
     text-align: center;
-    border: 2px solid #c40016;
+    border: 2px solid #ff6600;
+    line-height: 177px;
+    margin: 30px auto;
+}
+.iconImgBlue{
+    width: 143px;
+    height: 143px;
+    border-radius: 50%;
+    text-align: center;
+    border: 2px solid #4383b5;
     line-height: 177px;
     margin: 30px auto;
 }
 .test_btn{
-    background:#c40016;
+    background:#ff6600;
     color:#fff;
     border-radius:20px;
     text-align:center;
@@ -248,6 +279,9 @@
     margin:0 auto;
     height:40px;
     padding: 0 40px;
+}
+.test_btn.test_btn_1{
+    background: #4383b5
 }
 /*  约课  */
 .reLesson{
@@ -320,7 +354,7 @@
     overflow: hidden;
     position: relative;
 }
-.OrderLessonImg>img{
+.OrderLessonImg a>img{
     width: 100%;
     margin: 0 auto;
 }
@@ -408,7 +442,10 @@
 }
 .b_lesson_detail{
     border:1px solid #ccc;
-    padding:0 0 20px 0
+    padding:0 0 0px 0
+}
+.order_main{
+    margin-top:20px;
 }
 .leDetail_img{
     border-top: 1px solid #e5e5e5;
@@ -467,7 +504,7 @@
        border: 1px solid #ccc;height: 70px;overflow: hidden;
     }
     .date_item{
-        width:7.13%;float: left;height: 100%;border-left: 1px solid #ccc;text-align: center;color: #000;font-size: 14px;
+        width:7.13%;float: left;height: 100%;border-left: 1px solid #ccc;text-align: center;color: #333;font-size: 14px;cursor: pointer;
     }
     .date_item .date_day{
         display: block;margin-top:15px;margin-bottom: 10px;
@@ -478,23 +515,46 @@
     .date_item.mo{
         color: #ff6600
     }
+    .date_item.mo.active{
+        color:white
+    }
     .order_class{
         margin-top: 13px;border: 1px solid #ccc;
     }
-    .class_item_content,.class_item_title{
+    .class_item_title{
         border-bottom: 1px solid #ccc;text-align: center;
         display: flex;
         justify-content: space-between;
     }
     .class_item_content{
-        height: 79px;line-height: 79px;
+        border:1px solid #ccc;
+        width:183px;
+        height: 136px;
+        float:left;
+        border-radius:15px;
+        margin:0 39px 20px 0px;
+        text-align: center;
+        padding-top:18px;
+        transition:all 0.5s linear;
+        color:#333;
+    }
+    .class_item_content:nth-child(4n){
+        margin-right: 0;
+    }
+    .class_item_content:hover{
+        box-shadow: 0 3px 5px rgba(0,0,0,0.3);
+    }
+    .joinTime{
+        font-size: 18px;
+    }
+    .joinset{
+        font-size: 14px;
+        margin-top: 13px;
     }
     .class_item_title{
         height: 50px;line-height: 50px;
     }
-    .class_item_content li,.class_item_title li{
-        width: 20%;
-    }
+    
     .class_item_title li i{
         font-size:20px;
         color:#4381b4;
@@ -505,7 +565,125 @@
         line-height: 41px;
         margin: 20px auto;
         display: block;
+        pointer-events: auto;
+        cursor: pointer;
     }
     .class_ordered.class_full{
         background: #ccc;color: white;
+        pointer-events: auto;
+    }
+    .class_ordered.class_ordegrey{
+        background: #ccc;color: white;
+        pointer-events: none;
+    }
+    .yukebiaobox{
+        width:801px;
+        height: 687px;
+        background:#fff;
+        border-radius:10px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top:0;
+        bottom:0;
+        margin:auto;
+        padding:33px 43px
+    }
+    .yukebiaobox .yyTitle{
+        font-size: 26px;
+        color:#ff6600;
+        text-align: center;
+        margin-bottom:53px;
+    }
+    .tip{
+        font-size: 16px;
+        color:#333;
+        margin-top:20px;
+    }
+    .rilibox{
+        margin-top:20px;
+        display: flex;
+        justify-content: left;
+        flex-wrap: wrap;
+    }
+    .rilibox li{
+        width:90px;
+        height: 52px;
+        border:1px solid #999999;
+        border-radius:5px;
+        text-align: center;
+        line-height: 22px;
+        padding-top: 5px;
+        color:#333;
+        margin-right:12px;
+        margin-bottom:12px;
+        cursor: pointer;
+    }
+    .rilibox li.week{
+        border:1px solid #ff6600;
+        color:#ff6600
+    }
+    .rilibox li.active{
+        border:1px solid #ff6600;
+        background:#ff6600;
+        color:#fff;
+    }
+
+    .timebox{
+        display: flex;
+        justify-content: left;
+        flex-wrap: wrap;
+    }
+    .timebox li{
+        width:76px;
+        height: 42px;
+        border:1px solid #e5e5e5;
+        border-radius:5px;
+        text-align: center;
+        line-height: 42px;
+        color:#e5e5e5;
+        margin-right:12px;
+        margin-top:12px;
+        pointer-events: none;
+    }
+    .timebox li.active{
+        border:1px solid #ff6600;
+        background:#ff6600;
+        color:#fff;
+    }
+    .timebox li.grey{
+        border:1px solid #999999;
+        color:#333333;
+        pointer-events: auto;
+        cursor: pointer;
+    }
+    .timebox li.grey.active{
+        color:#fff;
+        border:1px solid #ff6600
+    }
+    .shue{
+        width:156px;
+        height: 41px;
+        border-radius:50px;
+        background: #ff6600;
+        border:1px solid #ff6600;
+        color:#fff;
+        font-size: 16px;
+        display: block;
+        margin:0 auto;
+        margin-top:40px;
+        cursor: pointer;
+        outline: none;
+    }
+    .youhuijuanXQ{
+        padding: 10px 28px 0;
+        height: auto;
+    }
+    .youhuijuanXQ h2{
+        line-height: 30px;
+        font-size: 20px;
+    }
+    .youhuijuanXQ>p{
+        line-height: 24px;
+        font-size: 14px;
     }

@@ -4,18 +4,32 @@ import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 import BottomFooter from './bottomFooter';
 const { Header, Content, Sider } = Layout;
 import { Link } from 'react-router';
+import TimeAdd from './timeAdd.js';//时间正计时
 
 export default class StudyCenter extends Component {
     constructor() {
         super();
         this.state = {
-
+            h:null,
+            m:null,
+            s:null
         };
     }
-    componentWillMount() {
-
-    }
+  
     render() {
+        const {h,m,s} =this.state;
+        let url = window.location.href.slice(window.location.href.indexOf('#')+1,window.location.href.indexOf('?'));
+        let urlClass = '';
+        let urlClass1 = '';
+        let urlClass2 = '';
+        console.log(url);
+        if(url == '/Main/Index' || url == '/Main/Index/'){
+            urlClass = 'active';
+        }else if(url == '/Main/Index/LessonDetail'){
+            urlClass1 = 'active'
+        }else if(url == '/Main/Index/LessonList/CompletedReac' || url.indexOf('/Main/Index/ScheduleDtailNo')>=0 || url.indexOf('/Main/Index/ScheduleDtail')>=0){
+            urlClass2 = 'active';
+        }
         return (
             <div>
                 <div className="index_bg"></div>
@@ -30,19 +44,19 @@ export default class StudyCenter extends Component {
                             </div>
                             <ul className="nav_item_u">
                                 <li>
-                                    <Link activeClassName="active" to="/Main/Index/Index">
+                                    <Link activeClassName="active" to="/Main/Index/Index" className={urlClass}>
                                         <span className="iconfont icon-home" style={{ fontSize: '22px', marginRight: '19px' }}></span>
                                         首页
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link activeClassName="active" to="/Main/Index/YueLesson">
+                                    <Link activeClassName="active" to="/Main/Index/YueLesson" className={urlClass1}>
                                         <span className="iconfont icon-kongzhiqirili"></span>
                                         约课
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link activeClassName="active" to="/Main/Index/LessonList">
+                                    <Link activeClassName="active" to="/Main/Index/LessonList" className={urlClass2}>
                                         <span className="iconfont icon-yuyue" style={{ fontSize: '22px', marginRight: '19px' }}></span>
                                         课表
                                     </Link>
@@ -63,7 +77,8 @@ export default class StudyCenter extends Component {
                                     <img src="images/icon_clock.png" alt="" />
                                 </div>
                                 <div className="clock_time">
-                                    <p className="b_time">15:19:44</p>
+                                    {/* <p className="b_time">15:19:44</p> */}
+                                    <p className="b_time"><TimeAdd step={1} /></p>
                                     <p>当前时间</p>
                                 </div>
                             </div>
@@ -74,13 +89,13 @@ export default class StudyCenter extends Component {
                                 <img src="images/icon_gocode.png" alt="" />
                             </div>
                             <div className="code_box">
-                                <img src="images/wecode.png" alt="" />
+                                <img src="images/weixin.jpg" alt="" />
                             </div>
                             <p className="code_text">
                                 扫码关注 官方微信
                             </p>
                             <p className="code_text2">
-                                400-8787-276
+                                400-6767-671
                             </p>
                         </div>
                         <div className="left-bottom-imgbox">

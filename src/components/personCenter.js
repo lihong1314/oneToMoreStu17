@@ -4,9 +4,27 @@ import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 import BottomFooter from './bottomFooter';
 const { Header, Content, Sider } = Layout;
 import { Link } from 'react-router';
+import TimeAdd from './timeAdd.js';//时间正计时
 
 export default class PersonCenter extends Component {
+    constructor() {
+        super();
+        this.state = {
+            h:null,
+            m:null,
+            s:null
+        };
+    }
+    componentWillMount() {
+        
+    }
     render() {
+        const {h,m,s} =this.state;
+        let url = window.location.href.slice(window.location.href.indexOf('#')+1);
+        let urlClass = '';
+        if(url == '/Main/Person/'){
+            urlClass = 'active';
+        }
         return (
             <div>
                 <div className="index_bg"></div>
@@ -21,7 +39,7 @@ export default class PersonCenter extends Component {
                             </div>
                             <ul className="nav_item_u">
                                 <li>
-                                    <Link activeClassName="active" to="/Main/Person/PersonInfo">
+                                    <Link activeClassName="active" to="/Main/Person/PersonInfo" className={urlClass}>
                                         <span className="iconfont icon-wode"></span>
                                         个人中心
                                     </Link>
@@ -60,7 +78,7 @@ export default class PersonCenter extends Component {
                                     <img src="images/icon_clock.png" alt="" />
                                 </div>
                                 <div className="clock_time">
-                                    <p className="b_time">15:19:44</p>
+                                <p className="b_time"><TimeAdd step={1} /></p>
                                     <p>当前时间</p>
                                 </div>
                             </div>
@@ -71,13 +89,13 @@ export default class PersonCenter extends Component {
                                 <img src="images/icon_gocode.png" alt="" />
                             </div>
                             <div className="code_box">
-                                <img src="images/wecode.png" alt="" />
+                                <img src="images/weixin.jpg" alt="" />
                             </div>
                             <p className="code_text">
                                 扫码关注 官方微信
                             </p>
                             <p className="code_text2">
-                                400-8787-276
+                            400-6767-671
                             </p>
                         </div>
                     </nav>

@@ -69,7 +69,7 @@ export default class Register extends React.Component {
 
         const newFieldObj = { value, valid: true, error: '' };
         let PhoneReg = /^1[0-9]{10}$/;
-        var CodeReg = /^\d{6}$/;
+        var CodeReg = /^\d{4}$/;
         var PwdReg = /^[0-9a-zA-Z]{6,}$/;
         switch (field) {
             case 'Phone': {
@@ -125,13 +125,13 @@ export default class Register extends React.Component {
         this.setState({
             loading: true
         })
-        fetch("http://learnapi.gogo-talk.com:8333/api/Register/UserRegister?Phone=" + form.Phone.value + "&OpenId=" + OpenId + "&Code=" + form.Code.value + "&Password" + form.Pwd.value,
+        fetch("http://learnapi.gogo-talk.com:8333/api/Register/UserRegister?Phone=" + form.Phone.value + "&OpenId=" + OpenId + "&Code=" + form.Code.value + "&Password=" + form.Pwd.value,
             {
                 method: "GET"
             })
             .then(res => res.json())
             .then(json => {
-                if (json.result == 1) {
+                if (json.result == 1 || json.result == 2) {
                     window.localStorage.setItem('Tonken', json.data.userToken);
                     hashHistory.push('/RegSuccess');
                     this.setState({
@@ -214,14 +214,13 @@ export default class Register extends React.Component {
                             {
                                 !Phone && form.Phone.error != '' ? <span className="iconfont icon-cuowu"></span> : ''
                             }
-
                             {this.state.form.Phone.error}
                         </p>
                     </div>
 
                     <div className={CodeClass}>
 
-                        <input type="text" onChange={(e) => this.handleValueChange('Code', e.target.value)} placeholder="输入6位验证码" className="b_from_input code_from_input" />
+                        <input type="text" onChange={(e) => this.handleValueChange('Code', e.target.value)} placeholder="输入4位验证码" className="b_from_input code_from_input" />
                         <span className={classType} onClick={(e) => this.handleClick(e)}>
                             {text}
                         </span>

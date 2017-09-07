@@ -47,9 +47,8 @@ export default class PwdLogin extends Component {
                 [field]: newFieldObj
             }
         });
-
-
         if (PhoneReg.test(value)) {
+            alert(1)
             fetch(`http://learnapi.gogo-talk.com:8333/api/Register/GetQRCodeByMobile?mobile=${value}`,
                 {
                     method: "GET"

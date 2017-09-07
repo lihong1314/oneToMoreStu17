@@ -12,17 +12,15 @@ export default class LessonItemCompleted extends Component {
             <div className="index_ds_item">
                 <div className="index_ds_header">
                     <div className="index_ds_time">
-                        今日 <span className="origin" style={{fontSize:'16px'}}>缺勤</span>
+                        今日 <span className="origin" style={{ fontSize: '16px' }}>缺勤</span>
                     </div>
                     {
                         this.props.isShoWPinJia == 'true' ?
                             <div className="index_ds_states">
-
                                 <Link to="/Main/Index/PinJia" className="red"> 待评价 </Link>
                             </div>
                             :
                             <div className="index_ds_states">
-
                                 已评价：<Rate disabled defaultValue={4} />
                             </div>
                     }
@@ -36,7 +34,6 @@ export default class LessonItemCompleted extends Component {
                         <span className="lesson_level">G1</span>
                         <span>Reader: Cat School - 绘本：猫咪学校</span>
                         <p className="lesson_dec">to introduce onesslf ; to exchange greeting</p>
-
                     </div>
                     <div className="lesson_user">
                         {/* 本节课获得<span>5</span>个 */}

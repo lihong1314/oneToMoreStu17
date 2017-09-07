@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 export default class Panel extends Component{
     render () {
-        let borderColor =this.props.border == 'orange'? {borderTop:'6px solid #ffc000'} : {borderTop:'6px solid #c40016'}
+        let borderColor =this.props.border == 'orange'? {borderTop:'6px solid #ffc000'} : {borderTop:'6px solid #f31e35'}
         let panelStyle = {
             background:'#fff',
             border:'1px solid #ccc',

@@ -7,6 +7,21 @@ import { Breadcrumb } from 'antd';
 import LessonItemUdone from './LessonItemUdone';
 
 export default class Alert extends Component {
+    yuyueClick(){
+        fetch(`http://learnapi.gogo-talk.com:8333/api/Lesson/AddLesson`,
+            {
+                method: "POST",
+                mode: "cors",
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                    , 'Authorization': window.localStorage.getItem('Tonken')
+                }
+            })
+            .then(res => res.json())
+            .then(json => {
+                console.log(json);
+            })
+    }
     render() {
         let None = {
             'display': 'none'
@@ -26,12 +41,12 @@ export default class Alert extends Component {
                         本次预约消耗1课时，确定预约？
                     </div>
                     <div className="win_footer">
-                        <Link to="/Main/Index/LessonDetail/1" style={{ 'background': '#f85d16', 'color': '#fff', 'marginRight': '20px' }} className="b_btn b_close_confirm">
+                        <a style={{ 'background': '#f85d16', 'color': '#fff', 'marginRight': '20px' }} className="b_btn b_close_confirm">
                             取消
-                        </Link>
-                        <Link to="/Main/Index/OrderAlertSuccess" className="b_btn b_msg_confirm">
+                        </a>
+                        <a className="b_btn b_msg_confirm" onClick={this.yuyueClick.bind(this)}>
                             确定
-                        </Link>
+                        </a>
                     </div>
                 </div>
                 <div class="wins wins_only_msg">

@@ -21,6 +21,8 @@ export default class PwdLogin extends Component {
                     error: ''
                 }
             },
+            isShow:false,
+            isLoginTip:'',
             loading: false,
             isStop:false//清空getOpenId
         };
@@ -90,10 +92,21 @@ export default class PwdLogin extends Component {
                     })
                     window.localStorage.setItem('Tonken', json.data.userToken);
                     hashHistory.push('/Main/Index/Index');
-                    //clearInterval(val);
-                    
                 } else if (json.result == 0) {
-                    hashHistory.push('/PwdLogin');
+                    this.setState({
+                        isShow:true,
+                        isLoginTip:json.msg
+                    })
+                    let that = this;
+                    setTimeout(function () {
+                        that.setState({
+                            isShow: false,
+                            isLoginTip:''
+                        })
+                        that.refs.phone.value='';
+                        that.refs.ps.value='';
+                    }, 1500)
+                   // hashHistory.push('/PwdLogin');
                 }
 
             })
@@ -104,11 +117,12 @@ export default class PwdLogin extends Component {
         var loadType = true;
         let Pwd = this.state.form.Pwd.valid;//Pwd的状态
         let Phone = this.state.form.Phone.valid;//Phone的状态
-        const { form } = this.state;
+        const { form,isShow,isLoginTip } = this.state;
 
         var PhoneClass = !Phone && form.Phone.error ? 'b_from_label _from_label err_from' : 'b_from_label _from_label';
         var PwdClass = !Pwd && form.Pwd.error ? 'b_from_label _from_label err_from' : 'b_from_label _from_label';
         var btnClass = (form.Phone.valid && form.Pwd.valid) ? 'login_btn' : 'disabled';
+        let isLoginError = isShow ? { display: 'block', height: document.documentElement.clientHeight + 'px' } : { display: 'none', height: document.documentElement.clientHeight + 'px' }
         return (
             <div className="login_c_c">
                 <div className="fl pwd_login_box">
@@ -117,7 +131,7 @@ export default class PwdLogin extends Component {
                         <span className="fl input_msg">
                             <span className="iconfont icon-p-shouji"></span>
                         </span>
-                        <input type="text" onChange={(e) => this.handleValueChange('Phone', e.target.value)} placeholder="输入11位手机号" className="b_from_input _from_input" />
+                        <input type="text" ref='phone' onChange={(e) => this.handleValueChange('Phone', e.target.value)} placeholder="输入11位手机号" className="b_from_input _from_input" maxLength="11"/>
                         {/* <span className="b_red bit">*</span> */}
                         <p className="form_vail b_red">
                         {
@@ -132,7 +146,7 @@ export default class PwdLogin extends Component {
                         <span className="fl input_msg">
                             <span className="iconfont icon-mima"></span>
                         </span>
-                        <input type="password" onChange={(e) => this.handleValueChange('Pwd', e.target.value)} placeholder="请输入6位或6位以上字母或数字" className="b_from_input _from_input" />
+                        <input type="password" ref='ps' onChange={(e) => this.handleValueChange('Pwd', e.target.value)} placeholder="请输入6位或6位以上字母或数字" className="b_from_input _from_input" />
                         <p className="form_vail b_red">
                         {
                             !Pwd && form.Pwd.error != '' ? <span className="iconfont icon-cuowu"></span> : ''
@@ -167,6 +181,12 @@ export default class PwdLogin extends Component {
                                 </Link>
                             </li>
                         </ul>
+                    </div>
+                </div>
+                {/* 登录失败提示 */}
+                < div className="testTing" style={isLoginError} >
+                    <div className="yy" ref="yys" >
+                        <h5>{isLoginTip}</h5>
                     </div>
                 </div>
             </div>
