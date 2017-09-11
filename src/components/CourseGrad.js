@@ -17,7 +17,7 @@ export default class DeviceTesting extends Component {
             bgColor2: 0,
             bgColor3: 0,
             bgColor4: 0,
-            oneArr: [{ name: '一年以上', val: 1 }, { name: '1-2年', val: 2 }, { name: '2-3年', val: 3 }, { name: '3年以上', val: 4 }],
+            oneArr: [{ name: '1年以下', val: 1 }, { name: '1-2年', val: 2 }, { name: '2-3年', val: 3 }, { name: '3年以上', val: 4 }],
             twoArr: [{ name: '小于1小时', val: 1 }, { name: '1-2小时', val: 2 }, { name: '2-3小时', val: 3 }, { name: '大于3小时', val: 4 }],
             threeArr: [{ name: '在校学习', val: 1 }, { name: '自学', val: 2 }, { name: '在培训机构学习', val: 3 }, { name: '以上全部', val: 4 }],
             fourArr: [{ name: '是', val: 3 }, { name: '否', val: 0 }],
@@ -105,13 +105,26 @@ export default class DeviceTesting extends Component {
             .then(json => {
                 if (json.result == -2) {// 1定级  -2未定级 -3有预约课程//未定级,isReate为true
                     this.setState({
-                        isGradeBgShow: true
+                        isGradeBgShow: true,
+                        gender:1
                     })
                     
 
                 } else {
                     this.setState({
                         isGradeBgShow: false
+                    })
+                }
+
+                if (this.state.gender == 1) {
+                    this.refs.boy.checked = true;
+                    this.setState({
+                        gender: 1
+                    })
+                } else if (this.state.gender == 0) {
+                    this.refs.girl.checked = true;
+                    this.setState({
+                        gender: 0
                     })
                 }
             })
@@ -219,7 +232,7 @@ export default class DeviceTesting extends Component {
             <div>
                 < div className="testTing" style={isShowz} >
                     <div className="tesTingBox" style={isGradeShowz}>
-                        <span className="closeX" onClick={(e) => this.CloseClick1(e)}>&times;</span>
+                        {/* <span className="closeX" onClick={(e) => this.CloseClick1(e)}>&times;</span> */}
                         <div className="courseTitle">
                             <h2>课程分级调查</h2>
                             <p>我们需要对孩子的学习情况做一个简单的调查，以初步确定孩子的学习课程等级。</p>
@@ -281,7 +294,7 @@ export default class DeviceTesting extends Component {
                             <ul>
                                 <li className={userNameClass}>
                                     <span>英文名</span>
-                                    <input type="text" name="studentName" onChange={(e) => this.changeValue(e.target.value)} maxLength="10" />
+                                    <input type="text" name="studentName" onChange={(e) => this.changeValue(e.target.value)} maxLength="20" />
                                 </li>
                                 <li className={userDateClass}>
                                     <span>生日</span>
@@ -293,9 +306,9 @@ export default class DeviceTesting extends Component {
                                 <li>
                                     <span>性别</span>
                                     <div className="sexbox">
-                                        <input type="radio" name="sex" className="rdo" value="1" id="boy" checked onChange={(e) => this.changeSex(e.target.value)} />
+                                        <input type="radio" name="sex" className="rdo" value="1" id="boy" ref="boy" onClick={(e) => this.changeSex(e.target.value)} />
                                         <label for="#boy">男</label>
-                                        <input type="radio" name="sex" className="rdo" value="0" id="girl" onChange={(e) => this.changeSex(e.target.value)} />
+                                        <input type="radio" name="sex" className="rdo" value="0" id="girl" ref='girl' onClick={(e) => this.changeSex(e.target.value)} />
                                         <label for="#girl">女</label>
                                     </div>
                                 </li>

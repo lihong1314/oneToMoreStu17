@@ -78,7 +78,7 @@ export default class OrderLessonDetail extends Component {
                     serverTime:json.data.SysDateTime
                 })
                 //获取两周的时间
-                let nowDate = new Date(json.data.SysDateTime);
+                let nowDate = new Date(json.data.SysDateTime.replace(/-/g,'/'));
                 let dataArrs = [];
                 const weekArr = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
                 for (let i = 0; i < 14; i++) {
@@ -267,7 +267,7 @@ export default class OrderLessonDetail extends Component {
         } else {
             dataObj.map((d, i) => {
                 let str = d.StartTime.replace('T', " ");
-                let time = new Date(str);
+                let time = new Date(str.replace(/-/g,'/'));
                 let h = time.getHours();
                 let m = time.getMinutes();
 
@@ -282,8 +282,8 @@ export default class OrderLessonDetail extends Component {
                 if (this.state.DemandId != 0) {
                     btn = <span className="class_ordered class_ordegrey" key={i}>加入</span>
                 } else {
-                    let now = new Date(this.state.serverTime);
-                    let classTime = new Date(this.state.StartTimes);
+                    let now = new Date(this.state.serverTime.replace(/-/g,'/'));
+                    let classTime = new Date(this.state.StartTimes.replace(/-/g,'/'));
                     let timeCha = classTime.getTime() - now.getTime();
                     if (timeCha < 600000) {
                         btn = <span className="class_ordered class_ordegrey" key={i}>加入</span>
@@ -381,11 +381,11 @@ export default class OrderLessonDetail extends Component {
                     <div className="yy_mengtai" ref="keshitip">
                         <div className="bnyy" style={{ display: 'block' }}>
                             <h5 className="yyTitle">您的课时不足，暂时不能预约</h5>
-                            <a className="yyipt bnqx" href="http://www.gogo-talk.com:9338/CourseBuy.html" target="_blank" style={{ display: 'block' }}>立即购买 </a>
+                            <a className="yyipt bnqx" href="http://hifan.gogo-talk.com/CourseBuy.html" target="_blank" style={{ display: 'block' }}>立即购买 </a>
                             <span className="closeX" onClick={this.keshitipClick.bind(this)}>&times;</span>
                         </div>
                     </div>
-                    <iframe src="http://http://www.gogo-talk.com:9338/auth.html" style={{ display: 'none', height: '1px', width: '1px' }}></iframe>
+                    <iframe src="http://hifan.gogo-talk.com/auth.html" style={{ display: 'none', height: '1px', width: '1px' }}></iframe>
                 </div>
             </div >
         )

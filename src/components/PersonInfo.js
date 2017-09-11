@@ -616,7 +616,7 @@ export default class PersonInfo extends Component {
             <AllPanel head="个人基本信息">
                 <div className="person_item">
                     <laber className="lab"><span className="labTitle">&#x3000;*英文名：</span>
-                        <input ref="ENames" type="text" onBlur={this.NameChange.bind(this)} className="ipt" maxLength="20" />
+                        <input ref="ENames" type="text" onChange={this.NameChange.bind(this)} className="ipt" maxLength="20" />
                         {/* <span className="inpurError" ref="ENamesError">只能输入英文字母</span> */}
                     </laber>
                     <laber className="lab">

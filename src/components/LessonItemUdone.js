@@ -537,7 +537,7 @@ export default class LessonItemUdone extends Component {
                     <div className="yy_mengtai" ref="keshitip">
                         <div className="bnyy" style={{ display: 'block' }}>
                             <h5 className="yyTitle" ref='keshitipword'>您的课时不足，暂时不能预约</h5>
-                            <a className="yyipt bnqx" href="http://www.gogo-talk.com:9338/CourseBuy.html" target="_blank" style={{ display: 'block' }}>立即购买 </a>
+                            <a className="yyipt bnqx" href="http://hifan.gogo-talk.com/CourseBuy.html" target="_blank" style={{ display: 'block' }}>立即购买 </a>
                             <span className="closeX" onClick={this.keshitipClick.bind(this)}>&times;</span>
                         </div>
                     </div>
@@ -548,7 +548,7 @@ export default class LessonItemUdone extends Component {
                             </div>
                         </div>
                     </div>
-                    <iframe src="http://http://www.gogo-talk.com:9338/auth.html" style={{ display: 'none', height: '1px', width: '1px' }}></iframe>
+                    <iframe src="http://hifan.gogo-talk.com/auth.html" style={{ display: 'none', height: '1px', width: '1px' }}></iframe>
                 </div>
 
             </div>

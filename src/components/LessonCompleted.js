@@ -140,9 +140,9 @@ export default class LessonCompleted extends Component {
             </li>
         } else {
             dataObj.map((d, i) => {
-                let time = new Date(d.StartTime);
+                let time = new Date(d.StartTime.replace(/-/g,'/'));
                 let nowTime = new Date();
-                const week = ['周一', '周二', '周三', '周四', '周五', '周六', '周日', '今天'];
+                const week = ['周日','周一', '周二', '周三', '周四', '周五', '周六',  '今天'];
                 let classState = ''
                 if (d.StudentStatus == 1) {
                     classState = '缺勤'
@@ -150,11 +150,12 @@ export default class LessonCompleted extends Component {
                     classState = '迟到'
                 }
 
+                
                 var weekStr = ''
                 if (time.getDay() - 1 == nowTime.getDay() - 1) {
                     weekStr = week[7];
                 } else {
-                    weekStr = week[time.getDay() - 1];
+                    weekStr = week[time.getDay()];
                 }
                 let m = (time.getMonth() + 1);
                 m = m<10?'0'+m:m;

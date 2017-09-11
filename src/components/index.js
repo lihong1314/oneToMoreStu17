@@ -9,6 +9,7 @@ export default class Index extends Component {
     }
     cleanTokenClick() {
         window.frames[0].postMessage(JSON.stringify({ token: '' }), "*");
+        window.localStorage.setItem('Tonken','');
     }
     render() {
         return (
@@ -32,26 +33,26 @@ export default class Index extends Component {
                                 </Link>
                             </li>
                             <li onClick={this.getTokenClick.bind(this)}>
-                                <a href="http://www.gogo-talk.com:9338/CourseBuy.html" target="_blank">
+                                <a href="http://hifan.gogo-talk.com/CourseBuy.html" target="_blank">
                                     <span className="iconfont icon-qianbao-copy"></span>
                                     购买课时
                                 </a>
                             </li>
                         </ul>
                         <div className="edit fr" onClick={this.cleanTokenClick.bind(this)}>
-                            <a href="http://www.gogo-talk.com:9338/">
+                            <a href="http://hifan.gogo-talk.com/">
                                 退出
                             <span className="iconfont icon-tuichu"></span>
                             </a>
                         </div>
                         <div className='back' onClick={this.getTokenClick.bind(this)}>
-                            <a href="http://www.gogo-talk.com:9338/">
+                            <a href="http://hifan.gogo-talk.com/">
                                 返回官网
                             <span className="iconfont icon-fanhui"></span>
                             </a>
                         </div>
                     </div>
-                    <iframe src="http://www.gogo-talk.com:9338/auth.html" style={{ display: 'none', height: '1px', width: '1px' }}></iframe>
+                    <iframe src="http://hifan.gogo-talk.com/auth.html" style={{ display: 'none', height: '1px', width: '1px' }}></iframe>
                 </header>
                 {this.props.children}
                 <footer>

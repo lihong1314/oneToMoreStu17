@@ -1965,6 +1965,8 @@ margin:0 auto;
 }
 .mengtai input{
     outline: none;
+    height: 30px;
+    line-height: 30px;
 }
 .mtyz{
     width: 676px;
@@ -2653,4 +2655,8 @@ footer p span{
 }
 .back a span{
     margin-left: 10px;
+}
+
+.nav_item_u li:hover a{
+    color:#49a9ee;
 }

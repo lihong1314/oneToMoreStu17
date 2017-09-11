@@ -350,9 +350,6 @@ export default class IndexMain extends Component {
                 <Link to={{ pathname: "/Main/Index/LessonDetail", query: { uid: tuijian.BdId, bid: tuijian.BookingId, levels: level } }} className="b_btn" style={{width:'109px',height:'32px',lineHeight:'32px',fontSize:'14px',marginTop:'20px'}}>
                     立即预约
                 </Link>
-                {/* <a href='javascript:;' className="b_btn">
-                    立即预约
-                </a> */}
             </div>
         </div>
         }
@@ -385,10 +382,11 @@ export default class IndexMain extends Component {
                                     <img src="images/stu_icon_1.png" alt="" />
                                 </span>
                                 积分：
-                                <span className="red b_stu_info_num">{user.TotalPoints}</span>
-                                <a className="g_help" style={{fontSize:'14px',marginLeft:'8px'}} onClick={this.openClick.bind(this, '2')}>
+                                <span className="red b_stu_info_num">0</span>
+                                {/* <span className="red b_stu_info_num">{user.TotalPoints}</span> */}
+                                {/* <a className="g_help" style={{fontSize:'14px',marginLeft:'8px'}} onClick={this.openClick.bind(this, '2')}>
                                     如何获取
-                                </a>
+                                </a> */}
                             </li>
                             <li>
                                 <span className="icon_b_mian">
@@ -464,19 +462,21 @@ export default class IndexMain extends Component {
                     <img src="images/line.png" alt="" />
                 </div>
                 {/* <!--报名  --> */}
-                <div className={baomingClass}>
+                {/* <a href="http://hifan.gogo-talk.com/CourseBuy.html" target="_blank"> */}
+                {/* <div className={baomingClass}> */}
                     {/* <!--按钮  --> */}
-                    <a href="http://www.gogo-talk.com:9338/CourseBuy.html" target="_blank" className="bm_btn" style={{top:'187px'}}>
-                        立即报名
-                    </a>
-                </div>
+                    {/* <a href="http://hifan.gogo-talk.com/CourseBuy.html" target="_blank" className="bm_btn" style={{top:'187px'}}> */}
+                        {/* 立即报名 */}
+                    {/* </a> */}
+                {/* </div> */}
+                {/* </a> */}
                 {/* <!--  分享 --> */}
-                <div className={fenxiangClass}>
+                {/* <div className={fenxiangClass}> */}
                     {/* <!--按钮  --> */}
-                    <a href="http://www.gogo-talk.com:9338/active.html" target="_blank" className="fenxiang_btn">
+                    {/* <a href="http://hifan.gogo-talk.com/active.html" target="_blank" className="fenxiang_btn"> */}
 
-                    </a>
-                </div>
+                    {/* </a> */}
+                {/* </div> */}
 
                 {/* <!--待上课程  --> */}
                 <div className={daiShangClass}>
@@ -545,7 +545,7 @@ export default class IndexMain extends Component {
                                 </li>
                             </ul>
                             <p style={{marginTop:'20px',lineHeight:'24px',color:'#b8b8b8',fontSize:'14px'}}>参与邀请活动，赠送积分哦！</p>
-                            <a style={{lineHeight:'24px',color:'#ff6600',fontSize:'14px'}} target="_blank" href='http://www.gogo-talk.com:9338/active.html'>点击去参与》</a>
+                            <a style={{lineHeight:'24px',color:'#ff6600',fontSize:'14px'}} target="_blank" href='http://hifan.gogo-talk.com/active.html'>点击去参与》</a>
                         </div>
                     </div>
                 </div>

@@ -183,15 +183,14 @@ export default class LessonUdoneReact extends Component {
                 //console.log(d.StartTime)
                 let arr = d.StartTime.split(/[- : \/]/);
                 //let time = new Date(arr[0], arr[1] - 1, arr[2], arr[3], arr[4], arr[5]);
-                let time = new Date(d.StartTime);
-                let nowTime = new Date(this.state.serverTime);
-                const week = ['周一', '周二', '周三', '周四', '周五', '周六', '周日', '今天'];
-
+                let time = new Date(d.StartTime.replace(/-/g,'/'));
+                let nowTime = new Date(this.state.serverTime.replace(/-/g,'/'));
+                const week = ['周日','周一', '周二', '周三', '周四', '周五', '周六',  '今天'];
                 var weekStr = ''
                 if (time.getDay() - 1 == nowTime.getDay() - 1) {
                     weekStr = week[7];
                 } else {
-                    weekStr = week[time.getDay() - 1];
+                    weekStr = week[time.getDay()];
                 }
                 let mon = (time.getMonth() + 1);
                 mon = mon < 10 ? '0' + mon : mon;

@@ -170,16 +170,15 @@ export default class LessonUdone extends Component {
             dataObj.map((d, i) => {
                 //let arr = d.StartTime.split(/[- : \/]/);
                 //let time = new Date(arr[0], arr[1] - 1, arr[2], arr[3], arr[4], arr[5]);
-                let time = new Date(d.StartTime);
+                let time = new Date(d.StartTime.replace(/-/g,'/'));
                 
-                let nowTime = new Date(this.state.serverTime);
-                const week = ['周一', '周二', '周三', '周四', '周五', '周六', '周日', '今天'];
-
+                let nowTime = new Date(this.state.serverTime.replace(/-/g,'/'));
+                const week = ['周日','周一', '周二', '周三', '周四', '周五', '周六',  '今天'];
                 var weekStr = ''
                 if (time.getDay() - 1 == nowTime.getDay() - 1) {
                     weekStr = week[7];
                 } else {
-                    weekStr = week[time.getDay() - 1];
+                    weekStr = week[time.getDay()];
                 }
                 let mon = (time.getMonth() + 1);
                 mon = mon < 10 ? '0' + mon : mon;
@@ -311,7 +310,7 @@ export default class LessonUdone extends Component {
                 <div className="yy_mengtai" ref="keshitip">
                     <div className="bnyy" style={{ display: 'block' }}>
                         <h5 className="yyTitle" ref='keshitipword'>您的课时不足，暂时不能预约</h5>
-                        <a className="yyipt bnqx" href="http://www.gogo-talk.com:9338/CourseBuy.html" target="_blank">立即购买 </a>
+                        <a className="yyipt bnqx" href="http://hifan.gogo-talk.com/CourseBuy.html" target="_blank">立即购买 </a>
                         <span className="closeX" onClick={this.keshitipClick.bind(this)}>&times;</span>
                     </div>
                 </div>

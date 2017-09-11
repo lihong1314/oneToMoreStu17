@@ -115,7 +115,8 @@ export default class MyJiFen extends React.Component {
                     let br = <br />
                     this.refs.jifentip.innerHTML = "兑换成功<br>已充值到我的课时"
                     this.setState({
-                        isShow4: true
+                        isShow4: true,
+                        isShow1:false
                     })
                     let that = this;
                     setTimeout(function () {
@@ -123,7 +124,7 @@ export default class MyJiFen extends React.Component {
                             isShow4: false,
                             num: zonFen - 300
                         })
-                        this.refs.jifentip.innerHTML = ""
+                        this.refs.jifentip.innerHTML = "";                        
                     }, 1500)
                 } else {
                     this.setState({
@@ -363,7 +364,7 @@ export default class MyJiFen extends React.Component {
                                 </li>
                             </ul>
                             <p style={{ marginTop: '20px', lineHeight: '24px', color: '#b8b8b8', fontSize: '14px' }}>参与邀请活动，赠送积分哦！</p>
-                            <a style={{ lineHeight: '24px', color: '#ff6600', fontSize: '14px' }} target="_blank" href='http://www.gogo-talk.com:9338/active.html'>点击去参与》</a>
+                            <a style={{ lineHeight: '24px', color: '#ff6600', fontSize: '14px' }} target="_blank" href='http://hifan.gogo-talk.com/active.html'>点击去参与》</a>
                         </div>
                     </div>
                 </div>

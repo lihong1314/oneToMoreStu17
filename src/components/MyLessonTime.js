@@ -154,7 +154,7 @@ export default class MyLessonTime extends React.Component {
                                     有效期：{time}
                                 </p>
                                 <p className="m_lesson_goumaikeshi" onClick={this.getTokenClick.bind(this)}>
-                                    <a target="_blank" href="http://www.gogo-talk.com:9338/CourseBuy.html" className="b_btn" >购买课时</a>
+                                    <a target="_blank" href="http://hifan.gogo-talk.com/CourseBuy.html" className="b_btn" >购买课时</a>
                                 </p>
                             </div>
                         </div>

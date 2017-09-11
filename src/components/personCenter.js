@@ -56,7 +56,7 @@ export default class PersonCenter extends Component {
                                         我的订单
                                     </Link>
                                 </li>
-                                <li>
+                                {/* <li>
                                      <Link activeClassName="active" to="/Main/Person/Integrai">
                                         <span className="iconfont icon-jifen1"></span>
                                         积分
@@ -67,7 +67,7 @@ export default class PersonCenter extends Component {
                                         <span className="iconfont icon-youhuijuan"></span>
                                         优惠劵
                                     </Link>
-                                </li>
+                                </li> */}
                             </ul>
                         </div>
                         {/* <!--时间  --> */}

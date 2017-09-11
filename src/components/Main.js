@@ -44,7 +44,7 @@ import MyJiFen from './MyjiFen'; //我的积分
 import YouHuiJuan from './YouHuiJuan';
 import PinJia from './dingdan';
 import DingJi from './MianCopy';
-import DeviceTestingZD from './DestingZd';
+import DeviceTestingZD from './DeviceTesting_zd';
 
 
 class AppComponent extends Component {
@@ -89,7 +89,7 @@ class AppComponent extends Component {
             <Route path="/Main/Index/LessonList/UndoneReact" component={LessonUdoneReact} />
             <Route path="/Main/Index/ScheduleDtail/:id" component={ScheduleDtail} />
             <Route path="/Main/Index/ScheduleDtailNo/:id" component={ScheduleDtailNo} />
-            <Route path="/Main/Index/Check" component={DeviceTesting} />
+            <Route path="/Main/Index/Check/:flag" component={DeviceTesting} />
             <Route path="/Main/Index/CheckZd" component={DeviceTestingZD} />
             <Route path="/Main/Index/CourseGrad" component={CourseGrad} />
           </Route>

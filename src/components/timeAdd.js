@@ -71,7 +71,7 @@ export default class Counter extends React.Component {
         })
         .then(res => res.json())
         .then(json => {
-            var now = new Date(json.data.SysDateTime);
+            var now = new Date(json.data.SysDateTime.replace(/-/g,'/'));
             var nowH = now.getHours();
             var nowM = now.getMinutes();
             var nowS = now.getSeconds();

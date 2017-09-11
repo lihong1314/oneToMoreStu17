@@ -23,12 +23,20 @@ export default class StudyCenter extends Component {
         let urlClass1 = '';
         let urlClass2 = '';
         console.log(url);
+        let urlClass3 = '';
         if(url == '/Main/Index' || url == '/Main/Index/'){
             urlClass = 'active';
         }else if(url == '/Main/Index/LessonDetail'){
+            urlClass =''
             urlClass1 = 'active'
         }else if(url == '/Main/Index/LessonList/CompletedReac' || url.indexOf('/Main/Index/ScheduleDtailNo')>=0 || url.indexOf('/Main/Index/ScheduleDtail')>=0){
             urlClass2 = 'active';
+            urlClass=''
+        }else if(url == '/Main/Index/CheckZ'){
+            urlClass3='active';
+            urlClass=''
+        }else{
+            urlClass=''
         }
         return (
             <div>
@@ -62,7 +70,7 @@ export default class StudyCenter extends Component {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link activeClassName="active" to="/Main/Index/Check">
+                                    <Link activeClassName="active" to={`/Main/Index/Check/${true}`} className={urlClass3}>
                                         <span className="iconfont icon-jiance" style={{ fontSize: '24px', marginRight: '17px' }}></span>
                                         检测设备
                                     </Link>

@@ -285,7 +285,7 @@ export default class OrderLesson extends Component {
                 <ul className="order_lesson_box">
                     {items}
                 </ul>
-                <CourseGrad show={true} gradeFns={this.gradeFn}/>
+                {/* <CourseGrad show={true} gradeFns={this.gradeFn}/> */}
             </div>
         )
     }

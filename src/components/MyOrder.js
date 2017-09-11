@@ -125,7 +125,7 @@ export default class MyOrder extends React.Component {
                                         </p>
                                     </li>
                                     <li>
-                                        <p>实际支付：<span>¥{d.Prices}</span></p>
+                                        <p style={{paddingTop:'7px'}}>实际支付：<span>¥{d.Prices}</span></p>
                                         <p className="yuanjia">
                                             优惠券抵现：<span>¥{d.Coupon == "" ? 0 : d.Coupon}</span>
                                         </p>
@@ -134,7 +134,7 @@ export default class MyOrder extends React.Component {
                                         <span className="wait_font">等待家长付款</span>
                                     </li>
                                     <li>
-                                        <a target="_blank" href={`http://www.gogo-talk.com:9338/confirmOrderPay.html?&GoodsId=${d.GoodsId}&ClassHours=${d.Hours}&ExpireMou=${d.ExpDay}&GPrice=${d.Prices}&AmountPayable=${d.AmountPayable}&OrderNum=${d.OrderNUM}&GoodsName=${escape(d.GoodsName)}&coupon=${d.AmountPayable - d.Prices}&CouponId=${d.CouponId}&MyNum=${window.localStorage.getItem('Tonken')}`} className="pay_btn">
+                                        <a target="_blank" href={`http://hifan.gogo-talk.com/confirmOrderPay.html?&GoodsId=${d.GoodsId}&ClassHours=${d.Hours}&ExpireMou=${d.ExpDay}&GPrice=${d.Prices}&AmountPayable=${d.AmountPayable}&OrderNum=${d.OrderNUM}&GoodsName=${escape(d.GoodsName)}&coupon=${d.AmountPayable - d.Prices}&CouponId=${d.CouponId}&MyNum=${window.localStorage.getItem('Tonken')}`} className="pay_btn">
                                             去支付
                                         </a>
                                         <a href="javascript:;" ref="cancel" onClick={this.handleclick1.bind(this)} className="close_btn">
@@ -175,7 +175,7 @@ export default class MyOrder extends React.Component {
                                         </p>
                                     </li>
                                     <li>
-                                        <p>实际支付：<span>¥{d.Prices}</span></p>
+                                        <p style={{paddingTop:'7px'}}>实际支付：<span>¥{d.Prices}</span></p>
                                         <p className="yuanjia">
                                             优惠券抵现：<span>¥{d.Coupon == "" ? 0 : d.Coupon}</span>
                                         </p>
@@ -207,7 +207,7 @@ export default class MyOrder extends React.Component {
                                         </p>
                                     </li>
                                     <li>
-                                        <p>实际支付：<span>¥{d.Prices}</span></p>
+                                        <p style={{paddingTop:'7px'}}>实际支付：<span>¥{d.Prices}</span></p>
                                         <p className="yuanjia">
                                             优惠券抵现：<span>¥{d.Coupon == "" ? 0 : d.Coupon}</span>
                                         </p>
@@ -239,7 +239,7 @@ export default class MyOrder extends React.Component {
                                         </p>
                                     </li>
                                     <li>
-                                        <p>实际支付：<span>¥{d.Prices}</span></p>
+                                        <p style={{paddingTop:'7px'}}>实际支付：<span>¥{d.Prices}</span></p>
                                         <p className="yuanjia">
                                             优惠券抵现：<span>¥{d.Coupon == "" ? 0 : d.Coupon}</span>
                                         </p>
@@ -283,7 +283,7 @@ export default class MyOrder extends React.Component {
                 <div className="paginationBox" style={isPaginationShow}>
                     <Pagination current={this.state.current} onChange={this.onChange} total={this.state.total} />
                 </div>
-                <iframe src="http://http://www.gogo-talk.com:9338/auth.html" style={{display: 'none',height: '1px', width: '1px'}}></iframe>
+                <iframe src="http://hifan.gogo-talk.com/auth.html" style={{display: 'none',height: '1px', width: '1px'}}></iframe>
             </div>
         )
     }
